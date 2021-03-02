@@ -29,7 +29,7 @@
 			"patterns": [{"include": "#types"}, {"include": "#simple"}]
 		},
 		"lettype": {
-			"begin": "(\\blettype\\b)\\s*(\\S+)\\s*(=)",
+			"begin": "(\\blettype\\b)(.+?)(=)",
 			"end": "(;)",
 			"beginCaptures": {
 				"1": { "name" : "keyword.control.fl" },
@@ -43,7 +43,7 @@
 		},
 		"inlettype": {
 			"begin": "(\\S+)",
-			"end": "(\\|)|(\\bandlettype\\b)\\s*(\\S+)\\s*(=)|(?=;)",
+			"end": "(\\|)|(\\bandlettype\\b)(.+?)(=)|(?=;)",
 			"name": "support.class.fl",
 			"beginCaptures": {
 				"1": { "name": "constant.character.escape.fl" }
@@ -101,7 +101,7 @@
 				},
 				{
 					"name": "support.class.fl",
-					"match": "\\b(string|int|float|bool|list|ref|tbl|bv|void|\\*|\\*\\*)\\b"
+					"match": "\\b(string|int|float|double|bool|list|ref|tbl|bv|bev|bexpr|void|window|iset|eq_info|opt|leaftype|term|mem|wexpr|update_fn|pexlif|content|vec_info|\\*|\\*\\*)\\b"
 				}
 			]
 		},
