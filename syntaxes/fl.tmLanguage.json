@@ -9,11 +9,16 @@
 	],
 	"repository": {
 		"let": {
-			"begin": "(\\bcletrec\\b|\\bclet\\b|\\blet\\b|\\bletrec\\b|/\\\\\\s)\\s*(\\S+)",
+			"begin": "(\\bcletrec\\b|\\bclet\\b|\\blet\\b|\\bletrec\\b|/\\\\\\s)\\s*(?:([^{ \t\n]\\S*)|({)\\s*(\\S*?)\\s*(::)(.*?)(}))",
 			"end": "(=)",
 			"beginCaptures": {
 				"1": { "name" : "keyword.control.fl" },
-				"2": { "name" : "constant.character.escape.fl" }
+				"2": { "name" : "constant.character.escape.fl" },
+				"3": { "name" : "keyword.other.fl" },
+				"4": { "name" : "constant.character.escape.fl" },
+				"5": { "name" : "keyword.other.fl" },
+				"6": { "name" : "support.class.fl", "patterns": [{"include": "#type_spec"}, {"include": "#simple"}]},
+				"7": { "name" : "keyword.other.fl" }
 			},
 			"endCaptures": {
 				"1": { "name" : "keyword.control.fl" }
