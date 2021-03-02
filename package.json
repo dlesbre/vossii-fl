@@ -11,7 +11,7 @@
     "categories": [
         "Programming Languages"
     ],
-    "main": "./extension.js",
+    "main": "extension.js",
     "activationEvents": [
         "onLanguage:fl",
         "onCommand:fl.start",
@@ -89,6 +89,47 @@
         "capabilities" : {
             "hoverProvider": true,
             "definitionProvider": true
+        },
+        "keybindings" :[
+            {
+                "command": "fl.restart_and_eval_file",
+                "key": "f5",
+                "when": "editorTextFocus && editorLangId == fl"
+            },
+            {
+                "command": "fl.eval_file",
+                "key": "f6",
+                "when": "editorTextFocus && editorLangId == fl"
+            },
+            {
+                "command": "fl.eval_line",
+                "key": "f7",
+                "when": "editorTextFocus && editorLangId == fl"
+            },
+            {
+                "command": "fl.eval_selection",
+                "key": "f8",
+                "when": "editorTextFocus && editorLangId == fl"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "command": "fl.eval_selection",
+                    "group": "vossii-fl",
+                    "when": "editorTextFocus && editorLangId == fl"
+                },
+                {
+                    "command": "fl.eval_line",
+                    "group": "vossii-fl",
+                    "when": "editorTextFocus && editorLangId == fl"
+                },
+                {
+                    "command": "fl.help",
+                    "group": "vossii-fl",
+                    "when": "editorTextFocus && editorLangId == fl"
+                }
+            ]
         }
     }
 }
