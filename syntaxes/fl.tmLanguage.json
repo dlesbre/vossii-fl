@@ -56,6 +56,14 @@
 			},
 			"patterns": [{"include": "#types_param"}, {"include": "#simple"}]
 		},
+		"lambda": {
+			"match": "((?<![\\#\\\\\\/\\|\\%\\$\\^\\-\\+\\&\\~])\\\\)(.+?)(\\.)",
+			"captures": {
+				"1": { "name": "keyword.control.fl" },
+				"2": { "name": "variable.parameter.fl", "patterns": [{"include": "#types_param"}, {"include": "#simple"}]},
+				"3": { "name": "keyword.control.fl" }
+			}
+		},
 		"types": {
 			"match": "({)\\s*(\\S+?)\\s*(::)(.+?)(})",
 			"captures": {
@@ -97,7 +105,7 @@
 				},
 				{
 					"name": "keyword.other.fl",
-					"match": "([=,;\\(\\)\\[\\]\\{\\}\\#:\\?><\\-!\\|+\\-\\*%@'&~$\\^])"
+					"match": "[=,;\\(\\)\\[\\]\\{\\}\\#:\\?><\\-!\\|+\\-\\*\\%\\@\\'\\&~\\$\\^\\\\]|\\/(?!\\/)"
 				},
 				{
 					"name": "support.class.fl",
