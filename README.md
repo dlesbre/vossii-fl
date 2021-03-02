@@ -1,65 +1,63 @@
-# vossii-fl README
+# Language support for fl
 
-This is the README for your extension "vossii-fl". After writing up a brief description, we recommend including the following sections.
+This extension adds language support for [Voss II](https://github.com/TeamVoss/VossII)'s functional language fl to Visual Studio Code.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Features include:
 
-For example if there is an image subfolder under your extension project workspace:
+- Basic syntaxic highlighting (tested in Dark+ and Light+ themes)
+- Commands to send files/lines/selections to an fl interpreter with
+	predefined shortcuts
+- Tooltips generated from fl's help texts
+- Go to definition when pressing `f12` while having the cursor over
+	a function name/operator
 
-\!\[feature X\]\(images/feature-x.png\)
+> Note that appart from syntax highlighting, feature require to have
+	an fl interpreter running and symbols defined to work properly.
+	Running your current file frequently is advised
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+
+Commands and shortcuts:
+
+|Command|Effect|Shortcut|
+|-------|------|--------|
+|fl: start fl|Starts the interpreter|Automaticaly when opening fl files|
+|fl: stop fl|Stops the interpreter| |
+|fl: help|Displays help on the word/operator under the cursor in the fl interpreter| |
+|fl: restart and run file|Restarts the interpreter and runs current file|`f5`|
+|fl: run file|Runs the current file in the interpreter|`f6`|
+|fl: run line|Runs the current line in the interpreter|`f7`|
+|fl: run selection|Runs the current selection (or word under cursor) in the interpreter|`f8`|
+
+> Commands can be run by typing their name in the command palette (`Ctrl+Shift+P`).
+
+> Shortcuts can be reassigned in `File > Preferences > Keyboard Shortcuts`
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+The syntax highlighting has no requirements.
+All other functionnalities require to have
+[Voss II](https://github.com/TeamVoss/VossII) installed and
+the path to the fl interpreter specified in settings.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
 This extension contributes the following settings:
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+* `vossii-fl.path`: path to the fl interpreter (default `"fl"`)
+* `vossii-fl.run_on_startup`: Automaticaly run `fl` when opening a
+	file/workspace with fl files (default on)
+* `vossii-fl.fl_setup`: fl code to run whenever starting fl
+	(default `set_font font_larger;`)
+* `vossii-fl.temporary_files_root`: path and prefix of temporary files used to
+	communicate with fl (default `/tmp/fl_`)
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+* When running a selection/line, `DIR` will be the workspace folder and not
+	the file root as expected (this isn't a problem when running files)
+* Getting tooltips/definition may not work on 1rst try.
+	If so, move mouse out and back over or hit `f12` again.
+* Can only get tooltips/go to definition for global function, both fail
+	for types or local variables.
