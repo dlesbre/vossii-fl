@@ -212,8 +212,9 @@ function stop_fl() {
 function start_fl() {
 	stop_fl();
 	if (config.fl_setup) send_to_fl(config.fl_setup, fl_prein);
+	else terminal.sendText(`echo "" > ${fl_prein}`);
 	known_functions = {};
-	terminal.sendText(`fl --read_input_from_file "${fl_in}" -f "${fl_prein}" -use_stdout >& "${fl_out}" &`);
+	terminal.sendText(`${config.path} --read_input_from_file "${fl_in}" -f "${fl_prein}" -use_stdout >& "${fl_out}" &`);
 }
 
 function help() {
