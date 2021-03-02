@@ -3,28 +3,23 @@
 	"name": "fl",
 	"fileTypes": [".fl"],
 	"patterns": [
-		{ "include": "#let_const" },
-		{ "include": "#let_func" },
+		{ "include": "#let" },
 		{ "include": "#types" },
 		{ "include": "#simple" }
 	],
 	"repository": {
-		"let_const": {
-			"match": "(cletrec|clet|let|letrec)\\s+(\\S+)\\s*(=)",
-			"captures": {
+		"let": {
+			"begin": "(\\bcletrec\\b|\\bclet\\b|\\blet\\b|\\bletrec\\b|/\\\\\\s)\\s*(\\S+)",
+			"end": "(=)",
+			"beginCaptures": {
 				"1": { "name" : "keyword.control.fl" },
-				"2": { "name" : "constant.character.escape.fl" },
-				"3": { "name" : "keyword.other.fl" }
-			}
-		},
-		"let_func": {
-			"match": "(cletrec|clet|let|letrec)\\s+(\\S+)\\s+(.+?)\\s*(=)",
-			"captures": {
-				"1": { "name" : "keyword.control.fl" },
-				"2": { "name" : "constant.character.escape.fl" },
-				"3": { "name" : "variable.parameter.fl", "patterns": [{"include": "#types"}, {"include": "#simple"}] },
-				"4": { "name" : "keyword.other.fl" }
-			}
+				"2": { "name" : "constant.character.escape.fl" }
+			},
+			"endCaptures": {
+				"1": { "name" : "keyword.control.fl" }
+			},
+			"name" : "variable.parameter.fl",
+			"patterns": [{"include": "#types"}, {"include": "#simple"}]
 		},
 		"types": {
 			"match": "({)\\s*(\\S+?)\\s*(::)(.+?)(})",
@@ -37,7 +32,7 @@
 			}
 		},
 		"type_spec": {
-			"match": "(\\*+)",
+			"match": "(\\*+|list|ref)",
 			"name": "support.class.fl"
 		},
 		"simple": {
@@ -45,7 +40,6 @@
 				{ "include": "#keywords" },
 				{ "include": "#constants" },
 				{ "include": "#strings" },
-				{ "include": "#singlestrings" },
 				{ "include": "#comments" },
 				{ "include": "#functions" }
 			]
@@ -62,7 +56,7 @@
 				},
 				{
 					"name": "support.class.fl",
-					"match": "\\b(string|int|float|bool|list|tbl|bv|void|\\*|\\*\\*)\\b"
+					"match": "\\b(string|int|float|bool|list|ref|tbl|bv|void|\\*|\\*\\*)\\b"
 				}
 			]
 		},
@@ -77,14 +71,6 @@
 				}
 			]
 		},
-		"singlestrings": {
-			"patterns": [
-				{
-					"name": "string.quoted.single.fl",
-					"match": "'.'"
-				}
-			]
-		},
 		"constants": {
 			"patterns": [
 					{
@@ -92,7 +78,7 @@
 							"name": "markup.bold.fl"
 					},
 					{
-							"match": "(?<=\\W)(\\.?\\d+)([Ee][+-]?\\d+)?",
+							"match": "(?<=\\W)(\\d*\\.?\\d+)([Ee][+-]?\\d+)?",
 							"name": "constant.numeric.fl"
 					},
 					{
