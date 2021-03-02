@@ -4,6 +4,8 @@
 	"fileTypes": [".fl"],
 	"patterns": [
 		{ "include": "#let" },
+		{ "include": "#lettype" },
+		{ "include": "#lambda" },
 		{ "include": "#types" },
 		{ "include": "#simple" }
 	],
@@ -26,11 +28,49 @@
 			"name" : "variable.parameter.fl",
 			"patterns": [{"include": "#types"}, {"include": "#simple"}]
 		},
+		"lettype": {
+			"begin": "(\\blettype\\b)\\s*(\\S+)\\s*(=)",
+			"end": "(;)",
+			"beginCaptures": {
+				"1": { "name" : "keyword.control.fl" },
+				"2": { "name" : "support.class.fl" },
+				"3": { "name" : "keyword.control.fl" }
+			},
+			"endCaptures": {
+				"1": { "name" : "keyword.other.fl" }
+			},
+			"patterns": [{"include": "#inlettype"}, {"include": "#simple"}]
+		},
+		"inlettype": {
+			"begin": "(\\S+)",
+			"end": "(\\|)|(\\bandlettype\\b)\\s*(\\S+)\\s*(=)|(?=;)",
+			"name": "support.class.fl",
+			"beginCaptures": {
+				"1": { "name": "constant.character.escape.fl" }
+			},
+			"endCaptures": {
+				"1": { "name": "keyword.control.fl" },
+				"2": { "name": "keyword.control.fl" },
+				"3": { "name": "support.class.fl" },
+				"4": { "name": "keyword.control.fl" }
+			},
+			"patterns": [{"include": "#types_param"}, {"include": "#simple"}]
+		},
 		"types": {
 			"match": "({)\\s*(\\S+?)\\s*(::)(.+?)(})",
 			"captures": {
 				"1": { "name" : "keyword.other.fl" },
 				"2": { "patterns" : [{ "include": "#simple"}]},
+				"3": { "name" : "keyword.other.fl" },
+				"4": { "name" : "support.class.fl", "patterns": [{"include": "#type_spec"}, {"include": "#simple"}]},
+				"5": { "name" : "keyword.other.fl" }
+			}
+		},
+		"types_param": {
+			"match": "({)\\s*(\\S+?)\\s*(::)(.+?)(})",
+			"captures": {
+				"1": { "name" : "keyword.other.fl" },
+				"2": { "name" : "variable.parameter.fl", "patterns" : [{ "include": "#simple"}]},
 				"3": { "name" : "keyword.other.fl" },
 				"4": { "name" : "support.class.fl", "patterns": [{"include": "#type_spec"}, {"include": "#simple"}]},
 				"5": { "name" : "keyword.other.fl" }
