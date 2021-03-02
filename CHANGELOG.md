@@ -2,7 +2,7 @@
 
 All notable changes to the "vossii-fl" extension will be documented in this file.
 
-## [Unreleased]
+## Version 1.0.0 - 2020-03-02
 
 - Initial release
 - Added syntax coloring for keywords, operators, builtin commands and builtin typs

@@ -2,7 +2,7 @@
 	"name": "vossii-fl",
 	"displayName": "Voss II fl",
 	"description": "Language support for Voss II functional language fl",
-	"version": "0.0.1",
+	"version": "1.0.0",
   "license": "Apache-2.0",
 	"publisher": "teamvoss",
 	"author": {"name": "Dorian Lesbre"},
