@@ -6,6 +6,7 @@
 		{ "include": "#let" },
 		{ "include": "#lettype" },
 		{ "include": "#lambda" },
+		{ "include": "#val" },
 		{ "include": "#types" },
 		{ "include": "#simple" }
 	],
@@ -63,6 +64,18 @@
 				"2": { "name": "variable.parameter.fl", "patterns": [{"include": "#types_param"}, {"include": "#simple"}]},
 				"3": { "name": "keyword.control.fl" }
 			}
+		},
+		"val": {
+			"begin": "\\b(val)\\b",
+			"end": "(=)",
+			"beginCaptures": {
+				"1": { "name": "keyword.control.fl" }
+			},
+			"endCaptures": {
+				"1": { "name": "keyword.control.fl" }
+			},
+			"name": "variable.parameter.fl",
+			"patterns": [{"include": "#types_param"}, {"include": "#simple"}]
 		},
 		"types": {
 			"match": "({)\\s*(\\S+?)\\s*(::)(.+?)(})",
