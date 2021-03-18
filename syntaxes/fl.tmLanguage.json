@@ -144,11 +144,11 @@
 							"name": "markup.bold.fl"
 					},
 					{
-							"match": "(?<=\\W)(\\d*\\.?\\d+)([Ee][+-]?\\d+)?",
+							"match": "(?:(?<=\\W)|^)(\\d*\\.?\\d+)([Ee][+-]?\\d+)?",
 							"name": "constant.numeric.fl"
 					},
 					{
-							"match": "(?<=\\W)\\d+(\\.(\\d*)?)",
+							"match": "(?:(?<=\\W)|^)\\d+(\\.(\\d*)?)",
 							"name": "constant.numeric.fl"
 					}
 			]
