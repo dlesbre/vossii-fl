@@ -129,13 +129,13 @@ async function help_from_pos(document, position) {
 	const indexes = word_at_position(text, pos);
 	if (indexes.left == -1) return null;
 	const ident = text.slice(indexes.left, indexes.right);
-	if (no_help.test(ident)) return null;
-
 	const range = new vscode.Range(
 		document.positionAt(indexes.left), document.positionAt(indexes.right)
 	);
+	if (no_help.test(ident))
+		return {ident: ident, help: null, range: range, is_function: false};
 	const help = String(await get_help(ident));
-	return {ident: ident, help: help, range: range}
+	return {ident: ident, help: help, range: range, is_function: true};
 }
 
 
@@ -149,7 +149,14 @@ async function help_from_pos(document, position) {
 async function get_tooltip(document, position) {
 	// 1 - get identifier or operator under cursor
 	const res = await help_from_pos(document, position);
-	if (!res) return null;
+	if (!res.is_function) {
+		if (res.ident == "=>" || res.ident == "|")
+			return {
+				contents: ["if then else construct:\n\n\tcondition => if_true | if_false\n\tIF condition THEN if_true ELSE if_false"],
+				range: res.range
+			};
+		return null;
+	}
 	if (!res.help)
 		return { contents: [`Unknown function "${res.ident}"\n\nRun the file to define all functions`], range: res.range };
 	const regex = /Function:\s*.*\s*(?:File:(?:.|\n)*?\nEnd:\s*\d+|Built-in)\s*(?:Implicit dependencies:\s*((?:.|\n)*?)\s*)?\s*(?:is the overloading of:\s*((?:.|\n)*?))?\s*(?:Arguments:\s*((?:.|\n)*?))?\s*(?:Return type:\s*(.*?))?\s*Fixity:\s*((?:.|\n)*?)\s*(?:Description:\s*((?:.|\n)*?))?\s*$/;
@@ -189,7 +196,7 @@ async function get_tooltip(document, position) {
 
 async function go_to_definition(document, position) {
 	const res = await help_from_pos(document, position);
-	if (!res || !res.help) return null;
+	if (!res.is_function || !res.help) return null;
 	const match = res.help.match(/File:\s*(.*)\nStart:\s*(\d*)/);
 	if (match === null) return null;
 	const file = vscode.Uri.file(match[1].trim());
