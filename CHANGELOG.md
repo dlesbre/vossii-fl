@@ -2,6 +2,12 @@
 
 All notable changes to the "vossii-fl" extension will be documented in this file.
 
+## Version ??? - Coming Soon
+
+- Added special color/tooltip for `condition => if_true | if_false` construct.
+- Added `defix` to keywords
+- Fixed number constants not coloring on line start.
+
 ## Version 1.0.0 - 2020-03-02
 
 - Initial release
