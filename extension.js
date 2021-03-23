@@ -85,9 +85,39 @@ function text_under_cursor() {
 // returns the selection text
 function current_selection() {
 	const editor = vscode.window.activeTextEditor;
+	if (!editor) return "";
 	const text = editor.document.getText(editor.selection);
 	if (text == "") return text_under_cursor();
 	return text;
+}
+
+function str_reverse(string) {
+	return string.split("").reverse().join("");
+}
+
+// returns current paragraph
+function current_paragraph() {
+	const editor = vscode.window.activeTextEditor;
+	if (!editor) return "";
+	const position = editor.document.offsetAt(editor.selection.active);
+	const text = editor.document.getText();
+	const regex = /\n\s*\n/; // paragraph separator
+
+	// find paragraph start
+	var left = str_reverse(text.slice(0, position)).search(regex);
+	if (left == -1)
+		left = 0;
+	else
+		left = position - left;
+
+	// find paragraph end
+	var right = text.slice(position).search(regex);
+	if (right == -1)
+		right = text.length;
+	else
+		right = position + right;
+
+	return text.slice(left, right);
 }
 
 
@@ -137,8 +167,6 @@ async function help_from_pos(document, position) {
 	const help = String(await get_help(ident));
 	return {ident: ident, help: help, range: range, is_function: true};
 }
-
-
 
 
 // ==============================================
@@ -230,7 +258,12 @@ function help() {
 }
 
 function eval_selection() {
-	const text = current_selection()
+	const text = current_selection();
+	if (text) send_to_fl(`${text};`);
+}
+
+function eval_paragraph() {
+	const text = current_paragraph();
 	if (text) send_to_fl(`${text};`);
 }
 
@@ -277,6 +310,7 @@ function activate(context) {
 		{name: 'fl.stop', func: stop_fl},
 		{name: 'fl.help', func: help},
 		{name: 'fl.eval_selection', func: eval_selection},
+		{name: 'fl.eval_paragraph', func: eval_paragraph},
 		{name: 'fl.eval_file', func: eval_file},
 		{name: 'fl.eval_line', func: eval_line},
 		{name: 'fl.restart_and_eval_file', func: restart_and_eval_file},

@@ -52,6 +52,10 @@
 				"title": "fl: run selection"
 			},
 			{
+				"command": "fl.eval_paragraph",
+				"title": "fl: run paragraph"
+			},
+			{
 				"command": "fl.eval_file",
 				"title": "fl: run current file"
 			},
@@ -115,12 +119,22 @@
 				"command": "fl.eval_selection",
 				"key": "f8",
 				"when": "editorTextFocus && editorLangId == fl"
+			},
+			{
+				"command": "fl.eval_paragraph",
+				"key": "f9",
+				"when": "editorTextFocus && editorLangId == fl"
 			}
 		],
 		"menus": {
 			"editor/context": [
 				{
 					"command": "fl.eval_selection",
+					"group": "vossii-fl",
+					"when": "editorTextFocus && editorLangId == fl"
+				},
+				{
+					"command": "fl.eval_paragraph",
 					"group": "vossii-fl",
 					"when": "editorTextFocus && editorLangId == fl"
 				},
