@@ -78,7 +78,7 @@
 			"patterns": [{"include": "#types_param"}, {"include": "#simple"}]
 		},
 		"types": {
-			"match": "({)\\s*(\\S+?)\\s*(::)(.+?)(})",
+			"match": "({)(.+?)(::)(.+?)(})",
 			"captures": {
 				"1": { "name" : "keyword.other.fl" },
 				"2": { "patterns" : [{ "include": "#simple"}]},
@@ -88,7 +88,7 @@
 			}
 		},
 		"types_param": {
-			"match": "({)\\s*(\\S+?)\\s*(::)(.+?)(})",
+			"match": "({)(.+?)(::)(.+?)(})",
 			"captures": {
 				"1": { "name" : "keyword.other.fl" },
 				"2": { "name" : "variable.parameter.fl", "patterns" : [{ "include": "#simple"}]},
