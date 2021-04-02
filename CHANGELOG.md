@@ -9,6 +9,7 @@ All notable changes to the "vossii-fl" extension will be documented in this file
 - Added `defix` to keywords
 - Fixed number constants not coloring on line start.
 - Fixed no syntac coloring for `{expr::type}` when `expr` contained multiple words
+- Removed special character coloring in comments, added coloration for TODO and FIXME
 
 ## Version 1.0.0 - 2020-03-02
 

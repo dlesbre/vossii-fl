@@ -175,8 +175,8 @@
 			"begin": "//",
 			"end": "\n",
 			"patterns": [{
-				"name": "constant.character.escape.fl",
-				"match": "\\\\."
+				"name": "invalid.illegal.fl",
+				"match": "\\b(TODO|FIXME)\\b"
 			}]
 		}
 	},
