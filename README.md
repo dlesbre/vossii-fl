@@ -22,16 +22,16 @@ Features include:
 
 Commands and shortcuts:
 
-|Command|Effect|Shortcut|
-|-------|------|--------|
-|fl: start fl|Starts the interpreter|Automaticaly when opening fl files|
-|fl: stop fl|Stops the interpreter| |
-|fl: help|Displays help on the word/operator under the cursor in the fl interpreter| |
-|fl: restart and run file|Restarts the interpreter and runs current file|`f5`|
-|fl: run file|Runs the current file in the interpreter|`f6`|
-|fl: run line|Runs the current line in the interpreter|`f7`|
-|fl: run selection|Runs the current selection (or word under cursor) in the interpreter|`f8`|
-|fl: run paragraph|Runs the current paragraph (text block separated by empty lines) in the interpreter|`f9`|
+| Command                  | Effect                                                                              | Shortcut                           |
+| ------------------------ | ----------------------------------------------------------------------------------- | ---------------------------------- |
+| fl: start fl             | Starts the interpreter                                                              | Automaticaly when opening fl files |
+| fl: stop fl              | Stops the interpreter                                                               |                                    |
+| fl: help                 | Displays help on the word/operator under the cursor in the fl interpreter           |                                    |
+| fl: restart and run file | Restarts the interpreter and runs current file                                      | `f5`                               |
+| fl: run file             | Runs the current file in the interpreter                                            | `f6`                               |
+| fl: run line             | Runs the current line in the interpreter                                            | `f7`                               |
+| fl: run selection        | Runs the current selection (or word under cursor) in the interpreter                | `f8`                               |
+| fl: run paragraph        | Runs the current paragraph (text block separated by empty lines) in the interpreter | `f9`                               |
 
 
 > Commands can be run by typing their name in the command palette (`Ctrl+Shift+P`).
