@@ -61,7 +61,7 @@ This extension contributes the following settings:
 
 * When running a selection/line, `DIR` will be the workspace folder and not
 	the file root as expected (this isn't a problem when running files)
-* Getting tooltips/definition may not work on 1rst try.
+* Getting tooltips/definition may not work on first try.
 	If so, move mouse out and back over or hit `f12` again.
 * Can only get tooltips/go to definition for global function, both fail
 	for types or local variables.
