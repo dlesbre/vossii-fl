@@ -267,10 +267,22 @@ function eval_paragraph() {
 	if (text) send_to_fl(`${text};`);
 }
 
-function eval_file() {
+async function eval_file() {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) return;
-	const filename = editor.document.fileName;
+	const document = editor.document;
+	if (document.isDirty) {
+		// prompt to save documents
+		const response_save = "Save";
+		const response_unsave = "Don't save"
+		const response = await vscode.window.showWarningMessage(
+			"File unsaved, ok to save ?", response_save, response_unsave
+		);
+		if (response == response_save) {
+			await document.save();
+		}
+	}
+	const filename = document.fileName;
 	send_to_fl(`load "${filename}";`);
 }
 
