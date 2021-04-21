@@ -3,12 +3,12 @@
 	"displayName": "Voss II fl",
 	"description": "Language support for Voss II functional language fl",
 	"version": "1.0.0",
-  "license": "Apache-2.0",
+	"license": "Apache-2.0",
 	"publisher": "teamvoss",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/TeamVoss/VossII"
-  },
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/TeamVoss/VossII"
+	},
 	"author": {"name": "Dorian Lesbre"},
 	"engines": {
 		"vscode": "^1.53.0"
