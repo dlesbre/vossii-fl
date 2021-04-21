@@ -273,7 +273,6 @@ async function eval_file() {
 	const document = editor.document;
 	if (document.isDirty) {
 		// prompt to save documents
-		vscode.window.showInformationMessage(config.save_file_on_run);
 		if (config.save_file_on_run == "Ask me") {
 			const response_save = "Save";
 			const response_unsave = "Don't save"
