@@ -11,6 +11,7 @@ All notable changes to the "vossii-fl" extension will be documented in this file
 - Fixed no syntac coloring for `{expr::type}` when `expr` contained multiple words
 - Removed special character coloring in comments, added coloration for TODO and FIXME
 - Fixed wrong escaped quotes detection leading to no hover for identifier and hover for strings
+- Added an option to save files before running unsaved files.
 
 ## Version 1.0.0 - 2020-03-02
 

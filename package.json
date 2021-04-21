@@ -90,7 +90,13 @@
 					"vossii-fl.fl_setup" : {
 						"type" : "string",
 						"default" : "set_font font_larger;",
-						"description": "Command to run upon starting fl"
+						"description": "fl code to run upon starting fl"
+					},
+					"vossii-fl.save_file_on_run" : {
+						"type" : "string",
+						"default" : "Ask me",
+						"description": "When running unsaved files in fl :",
+						"enum": ["Ask me", "Autosave", "Don't save"]
 					}
 				}
 			}

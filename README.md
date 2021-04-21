@@ -54,6 +54,8 @@ This extension contributes the following settings:
 	file/workspace with fl files (default on)
 * `vossii-fl.fl_setup`: fl code to run whenever starting fl
 	(default `set_font font_larger;`)
+* `vossii-fl.save_file_on_run`: behavior when running unsaved files.
+	Chose between `Ask me` (default), `Autosave` and `Don't save` (runs the last save).
 * `vossii-fl.temporary_files_root`: path and prefix of temporary files used to
 	communicate with fl (default `/tmp/fl_`)
 

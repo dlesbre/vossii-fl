@@ -273,14 +273,18 @@ async function eval_file() {
 	const document = editor.document;
 	if (document.isDirty) {
 		// prompt to save documents
-		const response_save = "Save";
-		const response_unsave = "Don't save"
-		const response = await vscode.window.showWarningMessage(
-			"File unsaved, ok to save ?", response_save, response_unsave
-		);
-		if (response == response_save) {
-			await document.save();
+		vscode.window.showInformationMessage(config.save_file_on_run);
+		if (config.save_file_on_run == "Ask me") {
+			const response_save = "Save";
+			const response_unsave = "Don't save"
+			const response = await vscode.window.showWarningMessage(
+				"File unsaved, ok to save ?", response_save, response_unsave
+			);
+			if (response == response_save)
+				await document.save();
 		}
+		else if (config.save_file_on_run == "Autosave")
+			await document.save();
 	}
 	const filename = document.fileName;
 	send_to_fl(`load "${filename}";`);
