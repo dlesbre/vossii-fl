@@ -148,6 +148,14 @@
 							"name": "markup.bold.fl"
 					},
 					{
+						"match": "(?:(?<=\\W)|^)0[xX][0-9A-Fa-f]+",
+						"name": "constant.numeric.fl"
+					},
+					{
+						"match": "(?:(?<=\\W)|^)0b[01]+",
+						"name": "constant.numeric.fl"
+					},
+					{
 							"match": "(?:(?<=\\W)|^)(\\d*\\.?\\d+)([Ee][+-]?\\d+)?",
 							"name": "constant.numeric.fl"
 					},
@@ -155,6 +163,7 @@
 							"match": "(?:(?<=\\W)|^)\\d+(\\.(\\d*)?)",
 							"name": "constant.numeric.fl"
 					}
+
 			]
 		},
 		"functions": {
