@@ -2,6 +2,12 @@
 
 All notable changes to the "vossii-fl" extension will be documented in this file.
 
+## Version ??? - ???
+
+- Added support for Jeremy's language
+- Added hexadecimal and binary constant coloring
+- Fix typo and missing keywords
+
 ## Version 1.1.0 - 2021-04-21
 
 - New command `fl.eval_paragraph` bound to `f9`

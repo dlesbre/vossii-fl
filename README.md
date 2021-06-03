@@ -2,7 +2,7 @@
 
 This extension adds language support for [Voss II](https://github.com/TeamVoss/VossII)'s functional language fl to Visual Studio Code.
 
-Tested for VossII version 1.0 (built on 2021-05-17).
+Tested for VossII version 1.0 (built on [2021-05-29](https://github.com/TeamVoss/VossII/tree/b0f5b42fed868729a238039cf53f143ebcbbb54c)).
 
 ## Features
 
