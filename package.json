@@ -34,7 +34,7 @@
 			{
 				"id": "jl",
 				"aliases": ["jl", "jl"],
-				"extensions": [".prog"],
+				"extensions": [".prog", ".intf"],
 				"configuration": "./jl-language-configuration.json"
 			}
 		],

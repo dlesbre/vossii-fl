@@ -1,7 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "jl",
-	"fileTypes": [".jl"],
+	"fileTypes": [".jl", ".intf"],
 	"patterns": [
 		{ "include": "#name" },
 		{ "include": "#vars" },
@@ -27,7 +27,7 @@
 			}
 		},
 		"vars" : {
-			"match": "\\b(input|output|var|temporary)\\s+([A-Za-z_][A-Za-z_0-9]*)\\s+((?:[A-Za-z_][A-Za-z_0-9]*\\s*,\\s*)*)([A-Za-z_][A-Za-z_0-9]*)\\s*(;)",
+			"match": "\\b(input|output|var|transient)\\s+([A-Za-z_][A-Za-z_0-9]*|\\?)\\s+((?:[A-Za-z_][A-Za-z_0-9]*\\s*,\\s*)*)([A-Za-z_][A-Za-z_0-9]*)\\s*(;)",
 			"captures": {
 				"1": { "name": "keyword.control.jl" },
 				"2": { "name": "support.class.jl" },
@@ -42,7 +42,7 @@
 			}
 		},
 		"method" : {
-			"match": "\\b(method)\\s+([A-Za-z_][A-Za-z_0-9]*)\\s*(:)\\s*((?:\\(\\))|(?:[A-Za-z_][A-Za-z_0-9]*)|(?:\\((?:[A-Za-z_][A-Za-z_0-9]*\\s*,\\s*)*[A-Za-z_][A-Za-z_0-9]*\\)))\\s*(->)\\s*((?:\\(\\))|(?:[A-Za-z_][A-Za-z_0-9]*)|(?:\\((?:[A-Za-z_][A-Za-z_0-9]*\\s*,\\s*)*[A-Za-z_][A-Za-z_0-9]*\\)))\\s*(;)",
+			"match": "\\b(method)\\s+([A-Za-z_][A-Za-z_0-9]*)\\s*(:)\\s*((?:\\(\\))|(?:[A-Za-z_][A-Za-z_0-9]*)|\\?|(?:\\((?:(?:[A-Za-z_][A-Za-z_0-9]*|\\?)\\s*,\\s*)*(?:[A-Za-z_][A-Za-z_0-9]*|\\?)\\s*\\)))\\s*(->)\\s*((?:\\(\\))|(?:[A-Za-z_][A-Za-z_0-9]*)|\\?|(?:\\((?:(?:[A-Za-z_][A-Za-z_0-9]*|\\?)\\s*,\\s*)*(?:[A-Za-z_][A-Za-z_0-9]*|\\?)\\s*\\)))\\s*(;)",
 			"captures": {
 				"1": { "name": "keyword.control.jl" },
 				"2": { "name": "constant.character.escape.jl" },
@@ -112,7 +112,7 @@
 			"name":"keyword.control.jl"
 		},
 		"operators": {
-			"match": "[;,\\(\\){}+\\-\\*&^\\|=!]",
+			"match": "[;,\\(\\){}+\\-\\*&^\\|=!><]",
 			"name":"keyword.other.jl"
 		},
 		"numbers": {
