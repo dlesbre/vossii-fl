@@ -327,6 +327,7 @@ async function restart_and_eval_file() {
 function activate(context) {
 
 	terminal = vscode.window.createTerminal("fl terminal");
+	terminal.sendText("set +o history"); // avoid spamming bash history
 
 	// commands
 	const functions = [
