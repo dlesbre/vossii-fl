@@ -108,11 +108,11 @@
 			}
 		},
 		"keywords": {
-			"match": "\\bif\\b|\\belse\\b|\\bdone\\b|--%<--",
+			"match": "\\bif\\b|\\bthen\\b|\\belse\\b|\\bdone\\b|--%<--",
 			"name":"keyword.control.jl"
 		},
 		"operators": {
-			"match": "[;,\\(\\){}+\\-\\*&^\\|=!><]",
+			"match": "[;,\\(\\){}+\\-\\*&^\\|=!><~]",
 			"name":"keyword.other.jl"
 		},
 		"numbers": {
