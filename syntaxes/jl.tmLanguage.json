@@ -108,7 +108,7 @@
 			}
 		},
 		"keywords": {
-			"match": "\\bif\\b|\\bthen\\b|\\belse\\b|\\bdone\\b|--%<--",
+			"match": "\\bif\\b|\\bthen\\b|#include\\b|\\belse\\b|\\bdone\\b|--%<--",
 			"name":"keyword.control.jl"
 		},
 		"operators": {
