@@ -12,6 +12,7 @@
 		{ "include": "#goto" },
 		{ "include": "#do" },
 		{ "include": "#keywords" },
+		{ "include": "#functions" },
 		{ "include": "#operators" },
 		{ "include": "#numbers" },
 		{ "include": "#strings" },
@@ -110,6 +111,13 @@
 		"keywords": {
 			"match": "\\bif\\b|\\bthen\\b|#include\\b|\\belse\\b|\\bdone\\b|--%<--",
 			"name":"keyword.control.jl"
+		},
+		"functions": {
+			"match": "([A-Za-z_][A-Za-z_0-9]*)\\s*(\\()",
+			"captures": {
+				"1": { "name": "string.regexp.jl" },
+				"2": { "name": "keyword.other.jl" }
+			}
 		},
 		"operators": {
 			"match": "[;,\\(\\){}+\\-\\*&^\\|=!><~]",
