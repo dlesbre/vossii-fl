@@ -7,6 +7,7 @@
 		{ "include": "#lettype" },
 		{ "include": "#lambda" },
 		{ "include": "#val" },
+		{ "include": "#new_type" },
 		{ "include": "#types" },
 		{ "include": "#simple" }
 	],
@@ -76,6 +77,23 @@
 			},
 			"name": "variable.parameter.fl",
 			"patterns": [{"include": "#types_param"}, {"include": "#simple"}]
+		},
+		"new_type": {
+			"begin": "\\b(new_type_abbrev)\\b(.*?)(=)",
+			"end": "(;)",
+			"beginCaptures": {
+				"1" : { "name": "keyword.control.fl" },
+				"2" : { "name": "support.class.fl" },
+				"3" : { "name": "keyword.control.fl" }
+			},
+			"endCaptures": {
+				"1": { "name": "keyword.other.fl" }
+			},
+			"name": "support.class.fl",
+			"patterns": [{
+				"match": "\\#|\\-\\>|\\(|\\)",
+				"name": "keyword.other.fl"
+			}]
 		},
 		"types": {
 			"match": "({)(.+?)(::)(.+?)(})",

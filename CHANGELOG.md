@@ -8,6 +8,7 @@ All notable changes to the "vossii-fl" extension will be documented in this file
 - Added hexadecimal and binary constant coloring
 - Fix typo and missing keywords
 - Used `set +o history` to avoid spamming bash history with terminal commands
+- fl color to `new_type_abbrev` constructs
 
 ## Version 1.1.0 - 2021-04-21
 
