@@ -44,7 +44,7 @@
 			"patterns": [{"include": "#inlettype"}, {"include": "#simple"}]
 		},
 		"inlettype": {
-			"begin": "(\\S+)",
+			"begin": "([^;\\ \\t\\n]+)",
 			"end": "(\\|)|(\\bandlettype\\b)(.+?)(=)|(?=;)",
 			"name": "support.class.fl",
 			"beginCaptures": {
