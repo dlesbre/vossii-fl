@@ -7,6 +7,7 @@ All notable changes to the "vossii-fl" extension will be documented in this file
 - Added support for Jeremy's language
 - Added hexadecimal and binary constant coloring
 - Fix typo and missing keywords
+- Fix some wrong syntax colors when no spaces used
 - Used `set +o history` to avoid spamming bash history with terminal commands
 - fl color to `new_type_abbrev` constructs
 
