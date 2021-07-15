@@ -41,7 +41,7 @@
 			"endCaptures": {
 				"1": { "name" : "keyword.other.fl" }
 			},
-			"patterns": [{"include": "#inlettype"}, {"include": "#simple"}]
+			"patterns": [{"include": "#simple"}, {"include": "#inlettype"}]
 		},
 		"inlettype": {
 			"begin": "([^;\\ \\t\\n\\|]+)",
