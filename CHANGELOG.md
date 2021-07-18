@@ -2,7 +2,7 @@
 
 All notable changes to the "vossii-fl" extension will be documented in this file.
 
-## Version ??? - ???
+## Version 1.2.0 - 2021-07-18
 
 - Added support for Jeremy's language
 - Added hexadecimal and binary constant coloring
