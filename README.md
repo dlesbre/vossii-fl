@@ -8,7 +8,8 @@ Tested for VossII version 1.0 (built on [2021-05-29](https://github.com/TeamVoss
 
 Features include:
 
-- Basic syntaxic highlighting (tested in Dark+ and Light+ themes)
+- Basic syntaxic highlighting for fl (tested in Dark+ and Light+ themes)
+- Basic syntaxic highlighting for jl (Jeremy's small language used to compile assembly like code to hfl)
 - Commands to send files/lines/selections to an fl interpreter with
 	predefined shortcuts
 - Tooltips generated from fl's help texts
